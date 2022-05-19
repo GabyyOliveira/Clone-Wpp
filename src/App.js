@@ -7,13 +7,14 @@ import SearchIcon from '@material-ui/icons/Search'
 import ChatListItem from './components/ChatListItem';
 import ErrorIcon from '@material-ui/icons/Error';
 import ChatIntro from './components/ChatIntro';
+import ChatWindow from './components/ChatWindow';
 
 
 const App = () =>{
 
-  const [chatList, setChatList] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}])
+  const [chatList, setChatList] = useState([{chatId: 1, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar.png'}, {chatId: 2, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar.png'}, {chatId: 3, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar.png'}, {chatId: 4, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar.png'}])
   const [activeChat, setActiveChat] = useState({});
-  
+
   return(
     <div className='app-window'>
       <div className='sidebar'>
@@ -46,12 +47,18 @@ const App = () =>{
         </div>
         <div className='chatList'>
           {chatList.map((item, key)=>(
-            <ChatListItem key={key} />
+            <ChatListItem key={key} data={item} active={activeChat.chatId === chatList[key].chatId} onClick={()=>setActiveChat(chatList[key])} />
           ))}
         </div>
       </div>
       <div className='contentarea'>
-        <ChatIntro />
+        {activeChat.chatId !== undefined && 
+         <ChatWindow />
+          
+        }
+        {activeChat.chatId === undefined && 
+          <ChatIntro />
+        } 
       </div>
     </div>
   )
