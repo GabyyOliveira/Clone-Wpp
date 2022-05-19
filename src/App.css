@@ -19,6 +19,7 @@ body{
   margin: 15px auto;
   /* background-color: var(--bg-window); */
   background-color: #202c33;
+  background-color: #212E36;
 }
 .sidebar{
   width: 35%;
@@ -100,7 +101,16 @@ header{
 }
 .chatList{
   background-color: #111B21;
+  flex: 1;
+  overflow-y: auto;
+}
+.chatList::-webkit-scrollbar{
+  width: 6px;
+  height: 6px;
+}
+.chatList::-webkit-scrollbar-thumb{
+  background-color: #91919121;
 }
 .contentarea{
-
+  flex: 1;
 }

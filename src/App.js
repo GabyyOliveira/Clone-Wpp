@@ -6,11 +6,14 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search'
 import ChatListItem from './components/ChatListItem';
 import ErrorIcon from '@material-ui/icons/Error';
+import ChatIntro from './components/ChatIntro';
 
 
 const App = () =>{
 
-  const [chatList, setChatList] = useState([{}, {}, {}, {}])
+  const [chatList, setChatList] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}])
+  const [activeChat, setActiveChat] = useState({});
+  
   return(
     <div className='app-window'>
       <div className='sidebar'>
@@ -48,7 +51,7 @@ const App = () =>{
         </div>
       </div>
       <div className='contentarea'>
-        ...
+        <ChatIntro />
       </div>
     </div>
   )
